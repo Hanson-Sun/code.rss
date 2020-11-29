@@ -1,9 +1,26 @@
 # code.rss
 
-the website that we will be using
+Welcome to code.rss, the official website made by and maintained by the students of the Richmond Secondary School Programming club. 
+
+to contact us, please email exec.rhs.code@gmail.com or our teacher sponsor jchow@sd38.bc.ca
+
+!img[club banner](/img_src/banner%20v1.png)
+
+## Task list
+- [ ] Main page
+- [ ] Archive page
+- [ ] Member page
+- [ ] Tutorial & resource page
+- [ ] Project Timeline
+- [ ] Contact form
+- [ ] Member login system 
+- [ ] Forum
+- [ ] School info/ Announcement board
 
 
-changes placed here.
 
+# Version History
+```
+---
+```
 
-test
