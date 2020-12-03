@@ -2,7 +2,7 @@
 <a href="https://github.com/RHS-coding" target="_blank">
     <img alt="club banner" src="img_src/logo-v1.png?raw=true" height="90" align="right" >
 </a>
-Welcome to code.rss, the official website made by and maintained by the students of the Richmond Secondary School Programming club. 
+Welcome to code.rss, the ~~official~~ website made by and maintained by the students of the Richmond Secondary School Programming club. 
 
 to contact us, please email exec.rhs.code@gmail.com or our teacher sponsor jchow@sd38.bc.ca
 
