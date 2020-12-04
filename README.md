@@ -23,6 +23,8 @@ to contact us, please email exec.rhs.code@gmail.com or our teacher sponsor jchow
 # Version History
 ```
 ---
+
+Using Flask for the database
 ```
 <p align="center">
     <a href="https://rhs-coding.github.io/code.rss/" target="_blank">
