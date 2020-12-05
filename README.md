@@ -23,6 +23,10 @@ to contact us, please email exec.rhs.code@gmail.com or our teacher sponsor jchow
 # Version History
 ```
 ---
+Flask Specifics:
+*Set up file structure. Also loaded a basic template found online to implement static files.
+    TL;DR = {{ url_for('static', filename='xxx')}}
+*code-rss.py is the main file to run
 ```
 <p align="center">
     <a href="https://rhs-coding.github.io/code.rss/" target="_blank">
