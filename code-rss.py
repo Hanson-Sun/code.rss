@@ -2,9 +2,11 @@ from flask import Flask, redirect, url_for, render_template, Blueprint
 from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextField,TextAreaField, SelectField
+from wtforms.fields.html5 import EmailField
 from wtforms.validators import DataRequired, Email
 from flask_pymongo import PyMongo 
 from datetime import datetime
+import email_validator
 
 
 
@@ -20,7 +22,7 @@ mongo = PyMongo(app, uri = "mongodb+srv://user1:user1@hopefullyaclusterthatwo.m2
 
 class ContactForm(FlaskForm):
     name = StringField('Your Name', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired()])
+    email = EmailField('Email', validators=[DataRequired(), Email()])
     message = TextAreaField('Message')
     department = SelectField('Department', choices=[("department","Department"),("sales","Sales"),("tech support","Tech Support"),("/dev/null","/Dev/Null")], validators=[DataRequired()])
     submit = SubmitField('Submit')
@@ -31,16 +33,24 @@ def log_information(name, email, message, department, subtime):
 
 
 @app.route("/", methods=['GET', 'POST'])
-@app.route("/home", methods=['GET', 'POST'])
 def index():
     form = ContactForm()
+    return render_template("index.html", form=form)
+
+@app.route("/submit", methods=['GET', 'POST'])
+def submit():
     user_collection = mongo.db.users
+    form = ContactForm()
     if request.method == 'POST':
         now = datetime.now()
         current_time = now.strftime("%H:%M:%S")
-        user_collection.insert(log_information(form.name.data, form.email.data, form.message.data, form.department.data, current_time))
+        user_collection.insert_one(log_information(form.name.data, form.email.data, form.message.data, form.department.data, current_time))
+        form.name.data = None
+        form.email.data = None
+        form.message.data = None
+        form.department.data = None
 
-    return render_template("index.html", form=form)
+        return "<h1>response submitted</h1>"
 
 if __name__ == "__main__":
     app.run(debug=True)
