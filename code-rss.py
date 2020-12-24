@@ -1,7 +1,6 @@
-from flask import Flask, redirect, url_for, render_template, Blueprint
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, redirect, url_for, render_template, Blueprint,request, flash, redirect, url_for
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextField,TextAreaField, SelectField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextField, TextAreaField, SelectField
 from wtforms.fields.html5 import EmailField
 from wtforms.validators import DataRequired, Email
 from flask_pymongo import PyMongo 
