@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>RHS Programming Club</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <body>
 
     
     <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
-        <img src="logo.png">
+        <img src="{{ url_for('static', filename='img/logo.png') }}">
         
         <div id="card" class="card">
         <a href="index.html">
@@ -46,7 +46,7 @@
   <div class="contact" id="contact">
   <div class="container" data-aos="zoom-in" >
   <h2>Contact us!</h2>
-  <form method="post">
+  <form method="post" action="https://formspree.io/f/mleoonyw">
     <label for="fname">Your Name</label>
     <input type="text" id="fname" name="firstname" placeholder="Your name..">
 
@@ -65,17 +65,17 @@
     <label for="subject">Subject</label>
     <textarea id="subject" name="subject" placeholder="Please write your message here.." style="height:200px"></textarea>
 
-    <button id = "submit" onclick="email()">Submit</button>
+    <button id = "submit" type="submit" value="Send">Submit</button>
   </form>
 </div>
   </div>
 
     </div>
 
-    <script src="script.js"></script>
-	<script src="particles.js-master/particles.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/particle-js/particles.js') }}"></script>
 	<script>
-		particlesJS.load("particles-div", "particles.js-master/particles.json");
+    particlesJS.load("particles-div", src="{{ url_for('static', filename='assets/particle-js/particles.json') }}");
 	</script>
   </body>
 </html>
