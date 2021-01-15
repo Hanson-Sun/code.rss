@@ -1,81 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>RHS Programming Club</title>
     <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  </head>
-  <body>
+</head>
 
-    
+<body>
+
+
     <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
         <img src="{{ url_for('static', filename='img/logo.png') }}">
-        
+
         <div id="card" class="card">
-        <a href="index.html">
-			<i class="material-icons">home</i>
-			<span class="icon-text">home</span>
-		</a>
-		<br>
+            <a href="{{ url_for('index') }}">
+                <i class="material-icons">home</i>
+                <span class="icon-text">home</span>
+            </a>
+            <br>
 
-        <a href="#">
-			<i class="material-icons">spa</i>
-			<span class="icon-text">projects</span>
+            <a href="#">
+                <i class="material-icons">spa</i>
+                <span class="icon-text">projects</span>
 
-        </a>
-		<br>
+            </a>
+            <br>
 
-        <a href="#">
-			<i class="material-icons">message</i>
-			<span class="icon-text">forum</span>
-		</a>
-		<br>
+            <a href="#">
+                <i class="material-icons">message</i>
+                <span class="icon-text">forum</span>
+            </a>
+            <br>
 
-        <a href="#">
-			<i class="material-icons">email</i>
-			<span class="icon-text">contact</span>
-		</a>
+            <a href="{{ url_for('contact') }}">
+                <i class="material-icons">email</i>
+                <span class="icon-text">contact</span>
+            </a>
         </div>
     </div>
     </div>
-	<div id = "particles-div"></div>
+    <div id="particles-div"></div>
     <div id="content" class="content">
-      
-  <div class="contact" id="contact">
-  <div class="container" data-aos="zoom-in" >
-  <h2>Contact us!</h2>
-  <form method="post" action="https://formspree.io/f/myybbjqn">
-    <label for="fname">Your Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
 
-    <label for="lname">Email</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your Email..">
+        <div class="contact" id="contact">
+            <div class="container" data-aos="zoom-in">
+                <h2>Contact us!</h2>
+                <form method="post" action="/submit">
+                    {{form.name(placeholder = "Name")}} <br> {{form.email(placeholder = "Email")}} <br> {{form.department}}
 
-    <label for="grade">Grade</label>
-    <select id="grade" name="grade">
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-    </select>
-
-    <label for="subject">Subject</label>
-    <textarea id="subject" name="subject" placeholder="Please write your message here.." style="height:200px"></textarea>
-
-    <button id = "submit" type="submit" value="Send">Submit</button>
-  </form>
-</div>
-  </div>
+                    <br> {{form.message(placeholder = "Message")}}<br> {{form.submit(placeholder = "Get Started")}}
+                </form>
+            </div>
+        </div>
 
     </div>
 
     <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
-	<script src="{{ url_for('static', filename='assets/particle-js/particles.js') }}"></script>
-	<script>
-    particlesJS.load("particles-div", src="{{ url_for('static', filename='assets/particle-js/particles.json') }}");
-	</script>
-  </body>
+    <script src="{{ url_for('static', filename='assets/particle-js/particles.js') }}"></script>
+    <script>
+        particlesJS.load("particles-div", src = "{{ url_for('static', filename='assets/particle-js/particles.json') }}");
+    </script>
+</body>
+
 </html>

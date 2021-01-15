@@ -1,0 +1,8 @@
+Flask==1.1.2
+Flask-PyMongo==1.1.2
+Flask-wtf==0.14.3
+email-validator==1.1.2
+WTForms==2.3.3
+wtforms-html5==0.2.2
+wtforms-validators==1.0.0
+
