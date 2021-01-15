@@ -183,7 +183,8 @@ p {
     text-align: center;
 }
 
-input,
+input[type="text"],
+input[type="email"],
 select,
 textarea {
     width: 100%;
@@ -201,7 +202,8 @@ textarea {
     background-color: black;
 }
 
-input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
 select:focus,
 textarea:focus {
     box-shadow: inset 1px 1px 2px #202622, inset -1px -1px 2px #424e46;

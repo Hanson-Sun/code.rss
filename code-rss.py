@@ -15,9 +15,9 @@ app = Flask(__name__,
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = 'randomkey'
 
-# the database name is ContactUsFormTest and the user is user1 with the password also being user1
+# database name is contact_form, user name is admin password is rhsprogrammingclub
 mongo = PyMongo(
-    app, uri="mongodb+srv://user1:user1@hopefullyaclusterthatwo.m2buw.mongodb.net/ContactFormTest?retryWrites=true&w=majority")
+    app, uri="mongodb+srv://admin:rhsprogrammingclub@code-rss.pdhzz.mongodb.net/contact_form?retryWrites=true&w=majority")
 
 
 class ContactForm(FlaskForm):
@@ -50,15 +50,14 @@ def submit():
     form = ContactForm()
     if request.method == 'POST':
         now = datetime.now()
-        current_time = now.strftime("%H:%M:%S")
-        user_collection.insert_one(log_information(
-            form.name.data, form.email.data, form.message.data, form.department.data, current_time))
+        current_time = now.strftime("%d/%m/%Y") +" "+ now.strftime("%H:%M:%S")
+        user_collection.insert_one(log_information(form.name.data, form.email.data, form.message.data, form.department.data, current_time))
         form.name.data = None
         form.email.data = None
         form.message.data = None
         form.department.data = None
 
-        return "<h1>response submitted</h1>"
+        return "<h1 style = 'display:flex; text-align:center; margin:auto;'>Response Submitted</h1>"
 
 
 if __name__ == "__main__":
